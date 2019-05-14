@@ -4,6 +4,10 @@ This repository contains the code for cFE, NASA's core Flight Executive. It also
 
 The official releases are tagged and assigned a version number. Applications (in the `apps` directory) that have the `_lab` postfix or `sample_` prefix are not intended to be used for flight.
 
+## This Is A Fork
+
+This fork is intended for running cFE on a Raspberry Pi. Users should not mistake it for the official NASA repository. Users should not assume that code in this repository is flight quality or mission ready. Contributions and fixes are welcome.
+
 ## Intent
 
 This repository is intend to:
