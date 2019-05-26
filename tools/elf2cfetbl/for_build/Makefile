@@ -27,12 +27,12 @@ COMPILER = gcc
 ## 
 ## They will need to be changed if the build host is a different processor, such as a Raspberry Pi, etc
 ## 
-TARGET_DEFS = -D__ix86__ -D_ix86_ -D_LINUX_OS_ -DHWARCH=x86 -Dx86 -Dlinux -DX86PC -DBUILD=$(BUILD) -D_REENTRANT -D _EMBED_  
+TARGET_DEFS = -D_LINUX_OS_ -Dlinux -DX86PC -DBUILD=$(BUILD) -D_REENTRANT -D _EMBED_  
 
 ##
 ## Architecture / debug defines
 ## 
-ARCH_DEFS = -m32 -g
+ARCH_DEFS = -g
 
 ## 
 ## Endian Defines
