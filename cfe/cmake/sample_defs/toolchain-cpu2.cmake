@@ -9,7 +9,7 @@
 # Basic cross system configuration
 SET(CMAKE_SYSTEM_NAME           Linux)
 SET(CMAKE_SYSTEM_VERSION        1)
-SET(CMAKE_SYSTEM_PROCESSOR      i686)
+SET(CMAKE_SYSTEM_PROCESSOR      arm)
 
 # Specify the cross compiler executables
 # Typically these would be installed in a home directory or somewhere
@@ -27,7 +27,4 @@ SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE   NEVER)
 SET(CFE_SYSTEM_PSPNAME      "pc-linux")
 SET(OSAL_SYSTEM_BSPNAME     "pc-linux")
 SET(OSAL_SYSTEM_OSTYPE      "posix")
-
-# This adds the "-m32" flag to all compile commands
-SET(CMAKE_C_FLAGS_INIT "-m32" CACHE STRING "C Flags required by platform")
 
