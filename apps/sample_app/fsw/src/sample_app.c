@@ -55,7 +55,7 @@ void SAMPLE_AppMain( void )
 
         /* Pend on receipt of command packet -- timeout set to 500 millisecs */
         status = CFE_SB_RcvMsg(&SAMPLEMsgPtr, SAMPLE_CommandPipe, 500);
-        
+
         CFE_ES_PerfLogEntry(SAMPLE_APP_PERF_ID);
 
         if (status == CFE_SUCCESS)
@@ -83,7 +83,7 @@ void SAMPLE_AppInit(void)
 
     /*
     ** Register the events
-    */ 
+    */
     CFE_EVS_Register(SAMPLE_EventFilters,
                      sizeof(SAMPLE_EventFilters)/sizeof(CFE_EVS_BinFilter_t),
                      CFE_EVS_BINARY_FILTER);
@@ -105,10 +105,10 @@ void SAMPLE_AppInit(void)
     CFE_EVS_SendEvent (SAMPLE_STARTUP_INF_EID, CFE_EVS_INFORMATION,
                "SAMPLE App Initialized. Version %d.%d.%d.%d",
                 SAMPLE_APP_MAJOR_VERSION,
-                SAMPLE_APP_MINOR_VERSION, 
-                SAMPLE_APP_REVISION, 
+                SAMPLE_APP_MINOR_VERSION,
+                SAMPLE_APP_REVISION,
                 SAMPLE_APP_MISSION_REV);
-				
+
 } /* End of SAMPLE_AppInit() */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **/
@@ -138,7 +138,7 @@ void SAMPLE_ProcessCommandPacket(void)
         default:
             SAMPLE_HkTelemetryPkt.sample_command_error_count++;
             CFE_EVS_SendEvent(SAMPLE_COMMAND_ERR_EID,CFE_EVS_ERROR,
-			"SAMPLE: invalid command packet,MID = 0x%x", MsgId);
+            "SAMPLE: invalid command packet,MID = 0x%x", MsgId);
             break;
     }
 
@@ -164,7 +164,7 @@ void SAMPLE_ProcessGroundCommand(void)
         case SAMPLE_APP_NOOP_CC:
             SAMPLE_HkTelemetryPkt.sample_command_count++;
             CFE_EVS_SendEvent(SAMPLE_COMMANDNOP_INF_EID,CFE_EVS_INFORMATION,
-			"SAMPLE: NOOP command");
+            "SAMPLE: NOOP command");
             break;
 
         case SAMPLE_APP_RESET_COUNTERS_CC:
@@ -211,7 +211,7 @@ void SAMPLE_ResetCounters(void)
     SAMPLE_HkTelemetryPkt.sample_command_error_count = 0;
 
     CFE_EVS_SendEvent(SAMPLE_COMMANDRST_INF_EID, CFE_EVS_INFORMATION,
-		"SAMPLE: RESET command");
+        "SAMPLE: RESET command");
     return;
 
 } /* End of SAMPLE_ResetCounters() */
@@ -222,7 +222,7 @@ void SAMPLE_ResetCounters(void)
 /*                                                                            */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **/
 boolean SAMPLE_VerifyCmdLength(CFE_SB_MsgPtr_t msg, uint16 ExpectedLength)
-{     
+{
     boolean result = TRUE;
 
     uint16 ActualLength = CFE_SB_GetTotalMsgLength(msg);
