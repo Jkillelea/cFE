@@ -20,6 +20,7 @@
 #define SAMPLE_COMMANDRST_INF_EID        4
 #define SAMPLE_INVALID_MSGID_ERR_EID     5 
 #define SAMPLE_LEN_ERR_EID               6 
+#define SAMPLE_LOOP_LOGMSG               7
 
 #endif /* _sample_app_events_h_ */
 
