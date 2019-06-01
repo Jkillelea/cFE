@@ -53,6 +53,8 @@ void SAMPLE_AppMain( void )
     {
         CFE_ES_PerfLogExit(SAMPLE_APP_PERF_ID);
 
+        CFE_EVS_SendEvent(SAMPLE_LOOP_LOGMSG, CFE_EVS_INFORMATION, "main l00p");
+
         /* Pend on receipt of command packet -- timeout set to 500 millisecs */
         status = CFE_SB_RcvMsg(&SAMPLEMsgPtr, SAMPLE_CommandPipe, 500);
 
@@ -125,6 +127,8 @@ void SAMPLE_ProcessCommandPacket(void)
 
     MsgId = CFE_SB_GetMsgId(SAMPLEMsgPtr);
 
+    OS_printf("SAMPLE: got msg %d\n", MsgId);
+
     switch (MsgId)
     {
         case SAMPLE_APP_CMD_MID:
@@ -157,6 +161,8 @@ void SAMPLE_ProcessGroundCommand(void)
     uint16 CommandCode;
 
     CommandCode = CFE_SB_GetCmdCode(SAMPLEMsgPtr);
+
+    OS_printf("SAMPLE: recieved command %d\n", CommandCode);
 
     /* Process "known" SAMPLE app ground commands */
     switch (CommandCode)
