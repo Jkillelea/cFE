@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/apps/**",
+                "${workspaceFolder}/cfe/**",
+                "${workspaceFolder}/osal/**",
+                "${workspaceFolder}/psp/fsw/pc-linux/**",
+                "${workspaceFolder}/psp/fsw/inc/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
