@@ -53,7 +53,7 @@ void SAMPLE_AppMain( void )
     {
         CFE_ES_PerfLogExit(SAMPLE_APP_PERF_ID);
 
-        CFE_EVS_SendEvent(SAMPLE_LOOP_LOGMSG, CFE_EVS_INFORMATION, "main l00p");
+        // CFE_EVS_SendEvent(SAMPLE_LOOP_LOGMSG, CFE_EVS_INFORMATION, "main l00p");
 
         /* Pend on receipt of command packet -- timeout set to 500 millisecs */
         status = CFE_SB_RcvMsg(&SAMPLEMsgPtr, SAMPLE_CommandPipe, 500);
