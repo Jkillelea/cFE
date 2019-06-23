@@ -18,22 +18,22 @@ void GPS_PRINTER_Main(void) {
             
             switch (msgId) {
             case GPS_READER_GPS_INFO_MSG:
-                OS_printf("GPS_PRINTER: GPS_READER_GPS_INFO_MSG Message\n");
+                OS_printf("GPS_PRINTER: GPS_READER_GPS_INFO_MSG Message (0x%x)\n", msgId);
                 break;
             case GPS_READER_GPS_GPGGA_MSG:
-                OS_printf("GPS_PRINTER: GPGGA Message\n");
+                OS_printf("GPS_PRINTER: GPS_READER_GPS_GPGGA_MSG Message (0x%x)\n", msgId);
                 break;
             case GPS_READER_GPS_GPGSA_MSG:
-                OS_printf("GPS_PRINTER: GPGGPS_READER_GPS_GPGSA_MSG Message\n");
+                OS_printf("GPS_PRINTER: GPS_READER_GPS_GPGSA_MSG Message (0x%x)\n", msgId);
                 break;
             case GPS_READER_GPS_GPRMC_MSG:
-                OS_printf("GPS_PRINTER: GPGGPS_READER_GPS_GPRMC_MSG Message\n");
+                OS_printf("GPS_PRINTER: GPS_READER_GPS_GPRMC_MSG Message (0x%x)\n", msgId);
                 break;
             case GPS_READER_GPS_GPVTG_MSG:
-                OS_printf("GPS_PRINTER: GPGGPS_READER_GPS_GPVTG_MSG Message\n");
+                OS_printf("GPS_PRINTER: GPS_READER_GPS_GPVTG_MSG Message (0x%x)\n", msgId);
                 break;
             default:
-                OS_printf("GPS_PRINTER: Unkown message ID %d\n", msgId);
+                OS_printf("GPS_PRINTER: Unkown message ID 0x%x\n", msgId);
                 break;
             }
         }
@@ -47,5 +47,9 @@ void GPS_PRINTER_Init(void) {
     OS_printf("GPS_PRINTER: Startup.");
 
     CFE_SB_CreatePipe(&gpsPipe, 10, "GPS_PRINTER_PIPE");
-    CFE_SB_Subscribe(GPS_READER_GPS_INFO_MSG, gpsPipe);
+    CFE_SB_Subscribe(GPS_READER_GPS_INFO_MSG,  gpsPipe);
+    CFE_SB_Subscribe(GPS_READER_GPS_GPGGA_MSG, gpsPipe);
+    CFE_SB_Subscribe(GPS_READER_GPS_GPGSA_MSG, gpsPipe);
+    CFE_SB_Subscribe(GPS_READER_GPS_GPRMC_MSG, gpsPipe);
+    CFE_SB_Subscribe(GPS_READER_GPS_GPVTG_MSG, gpsPipe);
 }
