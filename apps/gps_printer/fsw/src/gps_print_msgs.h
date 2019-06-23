@@ -10,6 +10,6 @@ void print_gpgga(nmeaGPGGA *gpgga);
 void print_gpgsa(nmeaGPGSA *gpgsa);
 void print_gpgsv(nmeaGPGSV *gpgsv);
 void print_gpvtg(nmeaGPVTG *gpvtg);
-void print_gprmc(nmeaGPRMC *gpvtg);
+void print_gprmc(nmeaGPRMC *gprmc);
 
 #endif // _GPS_READER_PRINT_MSGS_H_

@@ -58,9 +58,9 @@ void GPS_PRINTER_Init(void) {
     OS_printf("GPS_PRINTER: Startup.");
 
     CFE_SB_CreatePipe(&gpsPipe, 10, "GPS_PRINTER_PIPE");
-    CFE_SB_Subscribe(GPS_READER_GPS_INFO_MSG,  gpsPipe);
-    CFE_SB_Subscribe(GPS_READER_GPS_GPGGA_MSG, gpsPipe);
-    CFE_SB_Subscribe(GPS_READER_GPS_GPGSA_MSG, gpsPipe);
+    // CFE_SB_Subscribe(GPS_READER_GPS_INFO_MSG,  gpsPipe);
+    // CFE_SB_Subscribe(GPS_READER_GPS_GPGGA_MSG, gpsPipe);
+    // CFE_SB_Subscribe(GPS_READER_GPS_GPGSA_MSG, gpsPipe);
     CFE_SB_Subscribe(GPS_READER_GPS_GPRMC_MSG, gpsPipe);
     CFE_SB_Subscribe(GPS_READER_GPS_GPVTG_MSG, gpsPipe);
 }
