@@ -20,27 +20,27 @@ void GPS_PRINTER_Main(void) {
             switch (msgId) {
             case GPS_READER_GPS_INFO_MSG:
                 OS_printf("GPS_PRINTER: GPS_READER_GPS_INFO_MSG Message (0x%x)\n", msgId);
-                GpsInfoMsg_t *gpsInfo = gpsMessage;
+                GpsInfoMsg_t *gpsInfo = (GpsInfoMsg_t *) gpsMessage;
                 print_info(&gpsInfo->gpsInfo);
                 break;
             case GPS_READER_GPS_GPGGA_MSG:
                 OS_printf("GPS_PRINTER: GPS_READER_GPS_GPGGA_MSG Message (0x%x)\n", msgId);
-                GpsGpggaMsg_t *gpsGpgga = gpsMessage;
+                GpsGpggaMsg_t *gpsGpgga = (GpsGpgsaMsg_t *) gpsMessage;
                 print_gpgga(&gpsGpgga->gpsGpgga);
                 break;
             case GPS_READER_GPS_GPGSA_MSG:
                 OS_printf("GPS_PRINTER: GPS_READER_GPS_GPGSA_MSG Message (0x%x)\n", msgId);
-                GpsGpgsaMsg_t *gpsGpgsa = gpsMessage;
+                GpsGpgsaMsg_t *gpsGpgsa = (GpsGpgsaMsg_t *) gpsMessage;
                 print_gpgsa(&gpsGpgsa->gpsGpgsa);
                 break;
             case GPS_READER_GPS_GPRMC_MSG:
                 OS_printf("GPS_PRINTER: GPS_READER_GPS_GPRMC_MSG Message (0x%x)\n", msgId);
-                GpsGprmcMsg_t *gpsGprmc = gpsMessage;
+                GpsGprmcMsg_t *gpsGprmc = (GpsGprmcMsg_t *) gpsMessage;
                 print_gprmc(&gpsGprmc->gpsGprmc);
                 break;
             case GPS_READER_GPS_GPVTG_MSG:
                 OS_printf("GPS_PRINTER: GPS_READER_GPS_GPVTG_MSG Message (0x%x)\n", msgId);
-                GpsGpvtgMsg_t *gpsGpvtg = gpsMessage;
+                GpsGpvtgMsg_t *gpsGpvtg = (GpsGpvtgMsg_t *) gpsMessage;
                 print_gpvtg(&gpsGpvtg->gpsGpvtg);
                 break;
             default:
@@ -58,9 +58,9 @@ void GPS_PRINTER_Init(void) {
     OS_printf("GPS_PRINTER: Startup.");
 
     CFE_SB_CreatePipe(&gpsPipe, 10, "GPS_PRINTER_PIPE");
-    // CFE_SB_Subscribe(GPS_READER_GPS_INFO_MSG,  gpsPipe);
-    // CFE_SB_Subscribe(GPS_READER_GPS_GPGGA_MSG, gpsPipe);
-    // CFE_SB_Subscribe(GPS_READER_GPS_GPGSA_MSG, gpsPipe);
+    CFE_SB_Subscribe(GPS_READER_GPS_INFO_MSG,  gpsPipe);
+    CFE_SB_Subscribe(GPS_READER_GPS_GPGGA_MSG, gpsPipe);
+    CFE_SB_Subscribe(GPS_READER_GPS_GPGSA_MSG, gpsPipe);
     CFE_SB_Subscribe(GPS_READER_GPS_GPRMC_MSG, gpsPipe);
     CFE_SB_Subscribe(GPS_READER_GPS_GPVTG_MSG, gpsPipe);
 }
