@@ -25,7 +25,7 @@ void GPS_PRINTER_Main(void) {
                 break;
             case GPS_READER_GPS_GPGGA_MSG:
                 OS_printf("GPS_PRINTER: GPS_READER_GPS_GPGGA_MSG Message (0x%x)\n", msgId);
-                GpsGpggaMsg_t *gpsGpgga = (GpsGpgsaMsg_t *) gpsMessage;
+                GpsGpggaMsg_t *gpsGpgga = (GpsGpggaMsg_t *) gpsMessage;
                 print_gpgga(&gpsGpgga->gpsGpgga);
                 break;
             case GPS_READER_GPS_GPGSA_MSG:
