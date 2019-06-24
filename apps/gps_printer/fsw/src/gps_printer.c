@@ -1,4 +1,5 @@
 #include "cfe.h"
+#include "gps_printer.h"
 #include "gps_reader_msgids.h"
 #include "gps_reader_msgs.h"
 #include "gps_print_msgs.h"
