@@ -39,4 +39,4 @@ $(EXE_TARGET): $(CORE_OBJS)
 ## Application Link Rule
 ##
 $(APPTARGET).$(APP_EXT): $(OBJS)
-	$(COMPILER) -shared -o $@ $(OBJS) 
+	$(COMPILER) -shared -o $@ $(OBJS) $(LDFLAGS) $(LIBS) $(SHARED_LIB_LINK)
