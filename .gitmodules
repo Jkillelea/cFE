@@ -56,3 +56,6 @@
 	path = apps/gps_printer
 	url = https://github.com/Jkillelea/cfs_gps_printer.git
 
+[submodule "apps/gps_kalman"]
+	path = apps/gps_kalman
+	url = https://github.com/Jkillelea/cfs_gps_kalman.git
